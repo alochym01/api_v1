@@ -15,11 +15,12 @@ class CreateFoldersTable extends Migration
     {
         Schema::create('folders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('folder_name');
             $table->string('g_folder_id');
-            $table->string('filmid')->unique();
+            $table->string('filmid');
             $table->string('source');
             $table->timestamps();
+            $table->unique(['folder_name', 'filmid']);
         });
     }
 

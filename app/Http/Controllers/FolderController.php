@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 use App\Folder;
@@ -101,10 +102,26 @@ class FolderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function post(Request $request)
+    public function postfoldername(Request $request)
     {
-        return response()->json($request->all());
+        try{
+            $folder = Folder::where('filmid', $request->filmid)
+                        ->where('folder_name', $request->folder_name)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            $folder = Folder::create($request->all());
+        }
+        return response()->json($folder);
     }
 
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getfoldername(Request $request)
+    {
+        $folder = Folder::where('filmid', $request->filmid)
+                        ->where('folder_name', $request->folder_name)->firstOrFail();
+        return response()->json($folder);    }
 }
