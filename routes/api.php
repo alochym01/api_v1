@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post('/folders', 'FolderController@post');
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
