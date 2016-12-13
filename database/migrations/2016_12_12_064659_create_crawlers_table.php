@@ -28,6 +28,7 @@ class CreateCrawlersTable extends Migration
             $table->string('category')->nullable();
             $table->string('g_folder_id')->nullable();
             $table->string('source')->nullable();
+            $table->string('folder_name')->nullable();
             $table->string('enable')->deault(1);
             $table->timestamps();
         });
