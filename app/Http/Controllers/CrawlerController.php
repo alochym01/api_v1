@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use Illuminate\Http\Request;
 
-use App\Folder;
-
-class FolderController extends Controller
+class CrawlerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,8 +36,8 @@ class FolderController extends Controller
      */
     public function store(Request $request)
     {
-        $folder = Folder::firstOrCreate($request->all());
-        return response()->json($folder);
+        $crawler = Crawler::firstOrCreate($request->all());
+        return response()->json($crawler);
     }
 
     /**
@@ -76,53 +75,18 @@ class FolderController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Insert the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function getfolder($filmid)
-    {
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function postfoldername(Request $request)
+    public function postcrawler(Request $request)
     {
         try{
-            $folder = Folder::where('filmid', $request->filmid)
-                        ->where('folder_name', $request->folder_name)->firstOrFail();
+            $crawler = Crawler::where('link', $request->link)->firstOrFail();
         } catch (ModelNotFoundException $e) {
-            $folder = Folder::create($request->all());
+            $crawler = Crawler::create($request->all());
         }
-        return response()->json($folder);
+        return response()->json($crawler);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function getfoldername(Request $request)
-    {
-        $folder = Folder::where('filmid', $request->filmid)
-                        ->where('folder_name', $request->folder_name)->firstOrFail();
-        return response()->json($folder);    }
 }
