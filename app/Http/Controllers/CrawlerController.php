@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Illuminate\Http\Request;
 
+use App\Crawler;
 class CrawlerController extends Controller
 {
     /**

@@ -124,5 +124,6 @@ class FolderController extends Controller
     {
         $folder = Folder::where('filmid', $request->filmid)
                         ->where('folder_name', $request->folder_name)->firstOrFail();
-        return response()->json($folder);    }
+        return response()->json($folder);
+    }
 }
