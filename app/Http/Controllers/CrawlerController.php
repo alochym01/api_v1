@@ -90,4 +90,19 @@ class CrawlerController extends Controller
         }
         return response()->json($crawler);
     }
+
+    /**
+     * get the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getphimmoi()
+    {
+        return response()->json(Crawler::where('episode', 0)
+                        ->whereNotNull('filmid')
+                        ->where('source', 'http://phimmoi.net')
+                        ->where('enable', 1)
+                        ->orderBy('updated_at', 'desc')->first());
+    }
 }
