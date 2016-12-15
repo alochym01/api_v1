@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 // Route::post('/folders', 'FolderController@postfoldername');
 Route::post('/folders', 'FolderController@store');
 Route::get('/folders', 'FolderController@getfoldername');
-Route::get('/phimmoi/filmle', 'CrawlerController@getphimmoi');
+Route::get('/phimmoi/filmle', 'CrawlerController@getphimmoile');
+Route::get('/phimmoi/filmbo', 'CrawlerController@getphimmoibo');
 Route::post('/crawlers', 'CrawlerController@store');
 // Route::post('/crawlers', 'CrawlerController@postcrawler');
 Route::get('/user', function (Request $request) {
