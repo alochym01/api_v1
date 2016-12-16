@@ -19,6 +19,7 @@ Route::get('/folders', 'FolderController@getfoldername');
 Route::get('/phimmoi/filmle', 'CrawlerController@getphimmoile');
 Route::get('/phimmoi/filmbo', 'CrawlerController@getphimmoibo');
 Route::post('/crawlers', 'CrawlerController@store');
+Route::put('/crawlers/{id}', 'CrawlerController@update');
 // Route::post('/crawlers', 'CrawlerController@postcrawler');
 Route::get('/user', function (Request $request) {
     return $request->user();
