@@ -72,7 +72,7 @@ class CrawlerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $crawler = Crawler::firstOrFail($id);
+        $crawler = Crawler::find($id);
         dd($crawler);
         $crawler->enable = 0;
         $crawler->save();
