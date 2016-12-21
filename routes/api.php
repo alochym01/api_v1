@@ -18,6 +18,8 @@ Route::post('/folders', 'FolderController@store');
 Route::get('/folders', 'FolderController@getfoldername');
 Route::get('/phimmoi/filmle', 'CrawlerController@getphimmoile');
 Route::get('/phimmoi/filmbo', 'CrawlerController@getphimmoibo');
+Route::get('/hdonline/filmle', 'CrawlerController@gethdonlinele');
+Route::get('/hdonline/filmbo', 'CrawlerController@gethdonlinebo');
 Route::post('/crawlers', 'CrawlerController@store');
 Route::put('/crawlers/{id}', 'CrawlerController@update');
 // Route::post('/crawlers', 'CrawlerController@postcrawler');

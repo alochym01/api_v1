@@ -123,4 +123,33 @@ class CrawlerController extends Controller
                         ->where('enable', 1)
                         ->orderBy('updated_at', 'desc')->first());
     }
+    /**
+     * get the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function gethdonlinele()
+    {
+        return response()->json(Crawler::where('episode', 0)
+                        ->whereNotNull('filmid')
+                        ->where('source', 'http://hdonline.vn')
+                        ->where('enable', 1)
+                        ->orderBy('updated_at', 'desc')->first());
+    }
+
+    /**
+     * get the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function gethdonlinebo()
+    {
+        return response()->json(Crawler::where('episode', '>', 0)
+                        ->whereNotNull('filmid')
+                        ->where('source', 'http://hdonline.vn')
+                        ->where('enable', 1)
+                        ->orderBy('updated_at', 'desc')->first());
+    }
 }
