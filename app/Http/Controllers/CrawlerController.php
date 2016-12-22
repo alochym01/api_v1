@@ -73,10 +73,9 @@ class CrawlerController extends Controller
     public function update(Request $request, $id)
     {
         $crawler = Crawler::find($id);
-        try{
+        $crawler->enable = 0;
+        if ($request->has('enable')){
             $crawler->enable = $request->enable;
-        } catch(\Exception $e) {
-            $crawler->enable = 0;
         }
         $crawler->save();
         return response()->json($crawler);
