@@ -126,7 +126,7 @@ class CrawlerController extends Controller
             $crawler["trailer"] = $request->trailer;
             $crawler["vi"] = $request->vi;
             $crawler["year"] = $request->year;
-            $crawler["enable"] = $request->enable;
+            $crawler["enable"] = (int)$request->enable;
             $crawler->save();
         }
         return response()->json($crawler);
