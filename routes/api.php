@@ -21,6 +21,7 @@ Route::get('/phimmoi/filmbo', 'CrawlerController@getphimmoibo');
 Route::get('/hdonline/filmle', 'CrawlerController@gethdonlinele');
 Route::get('/hdonline/filmbo', 'CrawlerController@gethdonlinebo');
 Route::post('/crawlers', 'CrawlerController@store');
+Route::post('/crawlers/hdonline', 'CrawlerController@postcrawler');
 Route::put('/crawlers/{id}', 'CrawlerController@update');
 // Route::post('/crawlers', 'CrawlerController@postcrawler');
 Route::get('/user', function (Request $request) {
