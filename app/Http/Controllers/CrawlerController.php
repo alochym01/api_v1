@@ -37,7 +37,11 @@ class CrawlerController extends Controller
      */
     public function store(Request $request)
     {
-        $crawler = Crawler::firstOrCreate($request->all());
+        try{
+            $crawler = Crawler::where('link', $request->link)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            $crawler = Crawler::firstOrCreate($request->all());
+        }
         return response()->json($crawler);
     }
 
