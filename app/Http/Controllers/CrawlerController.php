@@ -95,11 +95,27 @@ class CrawlerController extends Controller
     {
         try{
             $crawler = Crawler::where('link', $request->link)->firstOrFail();
+            $crawler["category"] = $request->category;
+            $crawler["en"] = $request->en;
+            $crawler["episode"] = $request->episode;
+            $crawler["episodeid"] = $request->episodeid;
+            $crawler["filmid"] = $request->filmid;
+            $crawler["folder_name"] = $request->folder_name;
+            $crawler["g_folder_id"] = $request->g_folder_id;
+            $crawler["image"] = $request->image;
+            $crawler["link"] = $request->link;
+            $crawler["source"] = $request->source;
+            $crawler["total"] = $request->total;
+            $crawler["trailer"] = $request->trailer;
+            $crawler["vi"] = $request->vi;
+            $crawler["year"] = $request->year;
+            $crawler->save();
         } catch (ModelNotFoundException $e) {
             $crawler = Crawler::create($request->all());
             $crawler["category"] = $request->category;
             $crawler["en"] = $request->en;
             $crawler["episode"] = $request->episode;
+            $crawler["episodeid"] = $request->episodeid;
             $crawler["filmid"] = $request->filmid;
             $crawler["folder_name"] = $request->folder_name;
             $crawler["g_folder_id"] = $request->g_folder_id;
