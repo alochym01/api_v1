@@ -109,6 +109,7 @@ class CrawlerController extends Controller
             $crawler["trailer"] = $request->trailer;
             $crawler["vi"] = $request->vi;
             $crawler["year"] = $request->year;
+            $crawler["enable"] = (int)$request->enable;
             $crawler->save();
         } catch (ModelNotFoundException $e) {
             $crawler = Crawler::create($request->all());
